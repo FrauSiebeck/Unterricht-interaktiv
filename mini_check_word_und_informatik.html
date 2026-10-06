@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mini-Check | Word und Informatik</title>
+<style>
+:root{--ink:#17345f;--muted:#64748b;--line:#d9e2ec;--yellow:#fff2cc;--lilac:#e4dfec;--ok:#e6f6ea;--bad:#fdeaea;--blue:#eef5ff}
+*{box-sizing:border-box}body{margin:0;background:#f6f8fb;color:#182333;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+main{max-width:820px;margin:auto;padding:18px 14px 48px}.head,.card,.result{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin:14px 0}
+.head{background:var(--yellow)}h1{margin:0 0 7px;color:var(--ink);font-size:clamp(25px,4vw,36px)}h2{font-size:21px;margin:0 0 12px;color:var(--ink)}
+p{line-height:1.48}.small{color:var(--muted)}.progress{height:10px;background:#e8edf3;border-radius:20px;overflow:hidden;margin-top:14px}.bar{height:100%;width:0;background:#315da8;transition:.25s}
+.qnum{font-weight:800;color:#315da8;margin-bottom:6px}.options{display:grid;gap:9px;margin:13px 0}.opt{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:13px;background:#fff;min-height:48px}
+.opt input{margin-top:3px;transform:scale(1.2)}button{border:0;border-radius:12px;padding:12px 16px;min-height:44px;font-weight:750;font-size:16px;background:#315da8;color:#fff;cursor:pointer}
+button.secondary{background:#eef2f7;color:#274060}.feedback{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;line-height:1.45}.feedback.ok{display:block;background:var(--ok)}.feedback.bad{display:block;background:var(--bad)}
+textarea{width:100%;min-height:92px;border:1px solid #bcc8d6;border-radius:12px;padding:12px;font:inherit;font-size:16px;margin:8px 0 10px}
+.theory{background:var(--lilac);padding:13px;border-radius:13px;margin:10px 0}.result{display:none}.result.show{display:block}.score{font-size:28px;font-weight:850;color:#315da8}
+.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.hidden{display:none}.tag{display:inline-block;background:#eef2f7;border-radius:999px;padding:5px 9px;font-size:13px;font-weight:700}
+@media(max-width:560px){main{padding:10px 9px 36px}.head,.card,.result{padding:16px;border-radius:16px}}
+</style>
+</head>
+<body><main id="app">
+<section class="head">
+<div class="tag">4 | ✅ MINI-CHECK</div>
+<h1>Word und Informatik</h1>
+<p><b>Teste dein Verständnis.</b> Bearbeite alle sechs Aufgaben. Du bekommst sofort eine Rückmeldung und kannst Fehler verbessern.</p>
+<div class="progress" aria-label="Fortschritt"><div class="bar" id="bar"></div></div>
+<p class="small" id="status">0 von 6 Aufgaben geprüft</p>
+</section>
+
+<section class="card" data-q="1">
+<div class="qnum">1 | Microsoft Word ist …</div>
+<div class="options">
+<label class="opt"><input type="radio" name="q1" value="a"> ein Betriebssystem.</label>
+<label class="opt"><input type="radio" name="q1" value="b"> eine Anwendungssoftware zur Textverarbeitung.</label>
+<label class="opt"><input type="radio" name="q1" value="c"> eine Datei.</label>
+</div>
+<button type="button" class="check" data-answer="b">Antwort prüfen</button>
+<div class="feedback"></div>
+</section>
+
+<section class="card" data-q="2">
+<div class="qnum">2 | Ein Dokument ist …</div>
+<div class="options">
+<label class="opt"><input type="radio" name="q2" value="a"> der Inhalt, an dem du gerade arbeitest.</label>
+<label class="opt"><input type="radio" name="q2" value="b"> immer eine gespeicherte Datei.</label>
+<label class="opt"><input type="radio" name="q2" value="c"> ein Programm.</label>
+</div>
+<button type="button" class="check" data-answer="a">Antwort prüfen</button>
+<div class="feedback"></div>
+</section>
+
+<section class="card" data-q="3">
+<div class="qnum">3 | Beim Speichern …</div>
+<div class="options">
+<label class="opt"><input type="radio" name="q3" value="a"> wird Word geschlossen.</label>
+<label class="opt"><input type="radio" name="q3" value="b"> werden die Daten des Dokuments als Datei gespeichert.</label>
+<label class="opt"><input type="radio" name="q3" value="c"> wird aus Word ein Betriebssystem.</label>
+</div>
+<button type="button" class="check" data-answer="b">Antwort prüfen</button>
+<div class="feedback"></div>
+</section>
+
+<section class="card" data-q="4">
+<div class="qnum">4 | Eine Word-Datei hat meistens die Dateiendung …</div>
+<div class="options">
+<label class="opt"><input type="radio" name="q4" value="a"> .jpg</label>
+<label class="opt"><input type="radio" name="q4" value="b"> .mp3</label>
+<label class="opt"><input type="radio" name="q4" value="c"> .docx</label>
+</div>
+<button type="button" class="check" data-answer="c">Antwort prüfen</button>
+<div class="feedback"></div>
+</section>
+
+<section class="card" data-q="5">
+<div class="qnum">5 | Du fügst einer Tabelle eine neue Zeile hinzu. Was veränderst du?</div>
+<div class="options">
+<label class="opt"><input type="radio" name="q5" value="a"> die Struktur der Tabelle.</label>
+<label class="opt"><input type="radio" name="q5" value="b"> die Schriftart.</label>
+<label class="opt"><input type="radio" name="q5" value="c"> das Programm Word.</label>
+</div>
+<button type="button" class="check" data-answer="a">Antwort prüfen</button>
+<div class="feedback"></div>
+</section>
+
+<section class="card" data-q="6">
+<div class="qnum">6 | Nenne drei verschiedene Bestandteile, aus denen ein Word-Dokument bestehen kann.</div>
+<p class="small">Schreibe mindestens drei passende Begriffe, getrennt durch Kommas.</p>
+<textarea id="q6text" placeholder="Deine Antwort …"></textarea>
+<button type="button" id="check6">Antwort prüfen</button>
+<div class="feedback" id="fb6"></div>
+</section>
+
+<section class="card">
+<h2>🧩 Denkaufgabe</h2>
+<p>Du änderst in einem Word-Dokument die <b>Schriftfarbe eines Wortes</b>. Anschließend fügst du einer <b>Tabelle eine neue Zeile</b> hinzu.</p>
+<p><b>Erkläre den Unterschied zwischen diesen beiden Veränderungen aus Sicht der Informatik.</b></p>
+<textarea id="think" placeholder="Erkläre in eigenen Worten …"></textarea>
+<button type="button" id="showThink">Mit Musterlösung vergleichen</button>
+<div class="feedback" id="thinkFb">
+<b>Musterlösung:</b> Wenn du die Schriftfarbe änderst, veränderst du eine <b>Eigenschaft</b> des Textes. Wenn du eine neue Tabellenzeile einfügst, veränderst du die <b>Struktur</b> der Tabelle bzw. des Dokuments.
+</div>
+</section>
+
+<section class="result" id="result">
+<h2>🏁 Check geschafft?</h2>
+<div class="score" id="score"></div>
+<p id="resultText"></p>
+<div class="theory"><b>MERKE</b><br>
+<b>Programm</b> → damit arbeitest du<br>
+<b>Dokument</b> → daran arbeitest du<br>
+<b>Datei</b> → darin werden die Daten gespeichert<br>
+<b>Dateiformat</b> → legt fest, wie die Daten gespeichert werden
+</div>
+<div class="nav"><button type="button" class="secondary" id="reset">Mini-Check neu starten</button></div>
+</section>
+</main>
+<script>
+(()=>{const root=document.getElementById('app'); if(root.dataset.ready)return; root.dataset.ready='1';
+const done=new Set(), correct=new Set();
+const update=()=>{document.getElementById('bar').style.width=(done.size/6*100)+'%';document.getElementById('status').textContent=done.size+' von 6 Aufgaben geprüft';
+if(done.size===6){const r=document.getElementById('result');r.classList.add('show');document.getElementById('score').textContent=correct.size+' von 6 richtig';
+document.getElementById('resultText').textContent=correct.size===6?'Sehr sicher. Du kannst mit der nächsten Kachel weiterarbeiten.':correct.size>=4?'Schon gut. Schau dir deine falschen Antworten und die Rückmeldungen noch einmal an.':'Gehe zu den Theoriekacheln zurück und wiederhole die vier Fachbegriffe.';}};
+root.querySelectorAll('.check').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('[data-q]'),q=card.dataset.q,sel=card.querySelector('input:checked'),fb=card.querySelector('.feedback');if(!sel){fb.className='feedback bad';fb.textContent='Wähle zuerst eine Antwort aus.';return}
+done.add(q);if(sel.value===btn.dataset.answer){correct.add(q);fb.className='feedback ok';fb.innerHTML='<b>Richtig.</b> Du hast den Begriff sicher zugeordnet.'}else{correct.delete(q);fb.className='feedback bad';const hints={1:'Denke an die Theoriekachel: Word verarbeitet Texte.',2:'Dokument und Datei sind nicht dasselbe. Woran arbeitest du gerade?',3:'Was entsteht aus den Daten des Dokuments beim Speichern?',4:'Welche Endung siehst du bei Word-Dokumenten?',5:'Eine zusätzliche Zeile verändert den Aufbau der Tabelle.'};fb.innerHTML='<b>Noch nicht.</b> '+hints[q]+' Versuche es noch einmal.'}update()}));
+document.getElementById('check6').addEventListener('click',()=>{const text=document.getElementById('q6text').value.toLowerCase(),fb=document.getElementById('fb6');const terms=['text','zeichen','wörter','worte','absätze','absatz','tabelle','tabellen','bild','bilder','form','formen'];let hits=0,seen=[];terms.forEach(t=>{if(text.includes(t)&&!seen.some(s=>t.includes(s)||s.includes(t))){seen.push(t);hits++}});done.add('6');if(hits>=3){correct.add('6');fb.className='feedback ok';fb.innerHTML='<b>Richtig.</b> Zum Beispiel: Text/Zeichen und Wörter, Absätze, Tabellen, Bilder oder Formen.'}else{correct.delete('6');fb.className='feedback bad';fb.innerHTML='<b>Noch nicht vollständig.</b> Nenne mindestens drei verschiedene Bestandteile. Schau bei Bedarf noch einmal in die Theoriekachel „Was steckt hinter Word?“. '}update()});
+document.getElementById('showThink').addEventListener('click',()=>{const fb=document.getElementById('thinkFb');fb.className='feedback ok'});
+document.getElementById('reset').addEventListener('click',()=>{done.clear();correct.clear();root.querySelectorAll('input').forEach(x=>x.checked=false);root.querySelectorAll('textarea').forEach(x=>x.value='');root.querySelectorAll('.feedback').forEach(x=>x.className='feedback');document.getElementById('result').classList.remove('show');update();window.scrollTo({top:0,behavior:'smooth'})});
+update();})();
+</script>
+</body></html>
